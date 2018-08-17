@@ -96,7 +96,7 @@
 
 			// If this is no GET or POST request then use API's method override for maximum compatibility.
 			if ( method !== "POST" && method !== "GET" ) {
-				data["_method"] = method;
+				data[ "_method" ] = method;
 				method = "POST";
 			}
 

@@ -26,7 +26,7 @@ import { setFocusKeyword } from "./redux/actions/focusKeyword";
 import isGutenbergDataAvailable from "./helpers/isGutenbergDataAvailable";
 import {
 	registerReactComponent,
-	renderClassicEditorMetabox
+	renderClassicEditorMetabox,
 } from "./helpers/classicEditor";
 
 setYoastComponentsL10n();

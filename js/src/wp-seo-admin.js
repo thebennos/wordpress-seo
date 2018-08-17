@@ -25,25 +25,58 @@ import a11ySpeak from "a11y-speak";
 		var taxonomyPostVariables = [ "category", "category_description", "tag", "tag_description" ];
 		if ( e.hasClass( "posttype-template" ) ) {
 			wrongVariables = wrongVariables.concat( specialVariables, taxonomyVariables );
+		} else if ( e.hasClass( "homepage-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				authorVariables,
+				dateVariables,
+				postVariables,
+				specialVariables,
+				taxonomyVariables,
+				taxonomyPostVariables
+			);
+		} else if ( e.hasClass( "taxonomy-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				authorVariables,
+				dateVariables,
+				postVariables,
+				specialVariables
+			);
+		} else if ( e.hasClass( "author-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				postVariables,
+				dateVariables,
+				specialVariables,
+				taxonomyVariables,
+				taxonomyPostVariables
+			);
+		} else if ( e.hasClass( "date-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				authorVariables,
+				postVariables,
+				specialVariables,
+				taxonomyVariables,
+				taxonomyPostVariables
+			);
+		} else if ( e.hasClass( "search-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				authorVariables,
+				dateVariables,
+				postVariables,
+				taxonomyVariables,
+				taxonomyPostVariables,
+				[ "term404" ]
+			);
+		} else if ( e.hasClass( "error404-template" ) ) {
+			wrongVariables = wrongVariables.concat(
+				authorVariables,
+				dateVariables,
+				postVariables,
+				taxonomyVariables,
+				taxonomyPostVariables,
+				[ "searchphrase" ]
+			);
 		}
-		else if ( e.hasClass( "homepage-template" ) ) {
-			wrongVariables = wrongVariables.concat( authorVariables, dateVariables, postVariables, specialVariables, taxonomyVariables, taxonomyPostVariables );
-		}
-		else if ( e.hasClass( "taxonomy-template" ) ) {
-			wrongVariables = wrongVariables.concat( authorVariables, dateVariables, postVariables, specialVariables );
-		}
-		else if ( e.hasClass( "author-template" ) ) {
-			wrongVariables = wrongVariables.concat( postVariables, dateVariables, specialVariables, taxonomyVariables, taxonomyPostVariables );
-		}
-		else if ( e.hasClass( "date-template" ) ) {
-			wrongVariables = wrongVariables.concat( authorVariables, postVariables, specialVariables, taxonomyVariables, taxonomyPostVariables );
-		}
-		else if ( e.hasClass( "search-template" ) ) {
-			wrongVariables = wrongVariables.concat( authorVariables, dateVariables, postVariables, taxonomyVariables, taxonomyPostVariables, [ "term404" ] );
-		}
-		else if ( e.hasClass( "error404-template" ) ) {
-			wrongVariables = wrongVariables.concat( authorVariables, dateVariables, postVariables, taxonomyVariables, taxonomyPostVariables, [ "searchphrase" ] );
-		}
+
 		jQuery.each( wrongVariables, function( index, variable ) {
 			errorId = e.attr( "id" ) + "-" + variable + "-warning";
 			if ( e.val().search( "%%" + variable + "%%" ) !== -1 ) {
@@ -51,22 +84,20 @@ import a11ySpeak from "a11y-speak";
 				var msg = wpseoAdminGlobalL10n.variable_warning.replace( "%s", "%%" + variable + "%%" );
 				if ( jQuery( "#" + errorId ).length ) {
 					jQuery( "#" + errorId ).html( msg );
-				}
-				else {
+				} else {
 					e.after( ' <div id="' + errorId + '" class="wpseo-variable-warning">' + msg + "</div>" );
 				}
 
 				a11ySpeak( wpseoAdminGlobalL10n.variable_warning.replace( "%s", variable ), "assertive" );
 
 				warn = true;
-			}
-			else {
+			} else {
 				if ( jQuery( "#" + errorId ).length ) {
 					jQuery( "#" + errorId ).remove();
 				}
 			}
-		}
-		);
+		} );
+
 		if ( warn === false ) {
 			e.removeClass( "wpseo-variable-warning-element" );
 		}
@@ -92,8 +123,7 @@ import a11ySpeak from "a11y-speak";
 			if ( data ) {
 				jQuery( "#" + hide ).hide();
 			}
-		}
-		);
+		} );
 	}
 
 	/**
@@ -256,12 +286,10 @@ import a11ySpeak from "a11y-speak";
 			if ( "company" === companyOrPerson ) {
 				jQuery( "#knowledge-graph-company" ).show();
 				jQuery( "#knowledge-graph-person" ).hide();
-			}
-			else if ( "person" === companyOrPerson ) {
+			} else if ( "person" === companyOrPerson ) {
 				jQuery( "#knowledge-graph-company" ).hide();
 				jQuery( "#knowledge-graph-person" ).show();
-			}
-			else {
+			} else {
 				jQuery( "#knowledge-graph-company" ).hide();
 				jQuery( "#knowledge-graph-person" ).hide();
 			}

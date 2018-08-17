@@ -361,7 +361,6 @@ PostDataCollector.prototype.inputElementEventBinder = function( app ) {
 	}
 
 	tmceHelper.tinyMceEventBinder( app, tmceId );
-
 };
 
 /**

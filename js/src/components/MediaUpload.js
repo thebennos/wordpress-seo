@@ -10,6 +10,11 @@ import { localize } from "yoast-components";
  */
 class MediaUpload extends React.Component {
 
+	/**
+	 * Constructs the MediaUpload component.
+	 *
+	 * @param {Object} props The props to use within the component.
+	 */
 	constructor( props ) {
 		super( props );
 
@@ -118,10 +123,9 @@ class MediaUpload extends React.Component {
 	/**
 	 * Renders the output.
 	 *
-	 * @returns {JSX.Element} The rendered HTML.
+	 * @returns {ReactElement} The rendered HTML.
 	 */
 	render() {
-
 		return (
 			<div className="yoast-wizard-image-upload-container">
 				<p className="yoast-wizard-image-upload-container-description">
@@ -154,7 +158,6 @@ class MediaUpload extends React.Component {
 
 		this.props.onChange( changeEvent );
 	}
-
 }
 
 /**

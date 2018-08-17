@@ -108,11 +108,12 @@ import "./helpers/babel-polyfill";
 
 				label = term.closest( "label" );
 				label.find( ".wpseo-primary-category-label" ).remove();
-				label.append( primaryTermScreenReaderTemplate( {
-					taxonomy: taxonomies[ taxonomyName ],
-				} ) );
-			}
-			else {
+				label.append(
+					primaryTermScreenReaderTemplate( {
+						taxonomy: taxonomies[ taxonomyName ],
+					} )
+				);
+			} else {
 				listItem.addClass( "wpseo-non-primary-term" );
 			}
 		} );

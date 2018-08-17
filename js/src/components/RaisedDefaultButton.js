@@ -23,6 +23,7 @@ const RaisedDefaultButton = ( props ) => {
 
 RaisedDefaultButton.propTypes = {
 	type: PropTypes.string,
+	label: PropTypes.string,
 	disableFocusRipple: PropTypes.bool,
 	disableTouchRipple: PropTypes.bool,
 	disableKeyboardFocus: PropTypes.bool,
@@ -30,6 +31,7 @@ RaisedDefaultButton.propTypes = {
 
 RaisedDefaultButton.defaultProps = {
 	type: "",
+	label: "",
 	disableFocusRipple: true,
 	disableTouchRipple: true,
 	disableKeyboardFocus: true,

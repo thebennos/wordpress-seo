@@ -83,7 +83,6 @@
 
 		jQuery( ".wpseo-metabox-tabs" ).show();
 		// End Tabs code.
-
 	}
 
 	window.wpseoInitTabs = wpseoInitTabs;

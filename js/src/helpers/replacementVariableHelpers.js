@@ -166,7 +166,7 @@ export function mapCustomTaxonomies( replaceVars, store ) {
 			name,
 			label,
 			descriptionName,
-			descriptionLabel
+			descriptionLabel,
 		} = prepareCustomTaxonomyForDispatch( key );
 
 		store.dispatch( updateReplacementVariable( name, value.name, label ) );
